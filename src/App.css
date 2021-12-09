@@ -29,20 +29,16 @@
   }
 }
 
-.head a
-{
-  text-decoration: none;
-  color:#03DAC5;
-}
-.head h1
+
+.head p
 {
   font-size: 3.75rem;
 }
-.head h1::after
+.head p::after
 {
  content: "<partnersInCrime>";
 }
-.head h1:hover::after
+.head p:hover::after
 {
  cursor: progress;
  animation: logo 0.35s;
