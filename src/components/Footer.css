@@ -1,0 +1,145 @@
+.footer,.row{
+    margin-top: 190rem;
+    padding: 1rem;
+    /* background-color: rgb(235, 195, 64); */
+    position: fixed;
+    
+    bottom: 0%;
+    left: 0%;
+    width: 100% !important;
+  
+    
+  }
+  
+  .block{
+    color: red;
+    text-align: left !important;
+    
+  }
+  .made{
+    color:#fff;
+    bottom: 0%;
+    left: 0%;
+    font-size: 20px;
+    width: 100% !important;
+    font-family: var(--bodyFont);
+  }
+  .log{
+    overflow: hidden;
+ bottom: 0% !important;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 45px;
+    padding-top: 10px !important;
+    float: left;
+    color: #03DAC5;   
+          
+}
+.cloumn2{
+  padding-bottom: 190px !important;
+  float: right !important;
+}
+
+
+
+/* SOCIAL STUFF */
+.social-container {
+
+  padding-top: 20px !important;
+  padding-right: 56px;
+  float: right !important;
+
+}
+a.social {
+  margin: 0 1rem;
+  transition: transform 250ms;
+  display: inline-block;
+}
+
+a.social:hover {
+  transform: translateY(-2px);
+  
+}
+
+a.youtube {
+  color:var(--secondary);
+}
+
+a.facebook {
+  color:var(--secondary);
+ 
+}
+
+a.twitter {
+  color: var(--secondary);
+}
+
+a.instagram {
+  color: var(--secondary);
+}
+a.github {
+  color: var(--secondary);
+}
+
+@media screen and (max-width: 480px){
+  .log{
+    padding-right: 30px !important;
+    font-size: 25px !important;
+    text-align: center !important;
+    float: none !important;
+  }
+  .yt{
+    font-size: 25px !important; 
+    /* pixel mai daalio */
+     }
+
+     .made{
+     
+       text-align: center !important;
+       margin-left: -4% !important;
+     }
+   
+}
+@media screen and (max-width: 1000px){
+  .log{
+    padding-right: 30px !important;
+    font-size: 30px !important;
+   }
+
+   .yt{
+    font-size: 30px !important;
+     
+    /* pixel mai daalio */
+     }
+     .made{
+     
+      text-align: center !important;
+      margin-left: -4% !important;
+    }
+
+}
+
+@media only screen and (min-width: 500px) and (max-width: 700px) {
+  .log{
+
+    font-size: 20px !important;
+
+  }
+  .yt{
+    font-size: 20px !important; 
+    /* pixel mai daalio */
+     }
+
+     .made{
+     
+       text-align: center !important;
+       margin-left: -4% !important;
+     }
+
+     .social-container {
+
+      padding-top: 14px !important;
+      padding-right: 0px !important;
+      float: right !important;
+    
+    }
+}
