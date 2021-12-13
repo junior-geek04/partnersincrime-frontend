@@ -7,25 +7,15 @@ function Footer() {
     //     <div className="footer">
     //     <p>This is some content in sticky footer</p>
     //   </div>
-
-        <div className="row">
-     
-    <div className="log">
-        &lt;partnersInCrime&gt;
-        </div>
-      
-    <SocialFollow/>
-   <br/>   <br/>   <br/>   <br/>      <br/>
-    <div className="row">
-    
-    <p className="made">Made with ❤️ by </p>
-    </div>
-   
-
-    
-            
-          
-    </div>
+    <div className="container">
+      	<div className="sec1"> 
+    	  	<div className="log">&lt;partnersInCrime&gt;</div>
+    	  	<SocialFollow/>
+      	</div>   
+      	<div className="sec2">
+    		<p className="made">Made with ❤️ by </p>
+  	  	</div>
+    </div> 
   );
 }
 

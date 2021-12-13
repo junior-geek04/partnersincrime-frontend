@@ -1,5 +1,4 @@
-*
-{
+*{
   margin: 0;
   padding: 0;
 
@@ -15,8 +14,7 @@
   --bodyFont:'Roboto',sans-serif;
   --codeFont: 'Source Code Pro', monospace;
 }
-body
-{
+body{
     background-color:#121212;
     min-height: 100vh;
 }

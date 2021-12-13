@@ -1,5 +1,5 @@
 .container{
-    min-height: 60vh;
+    height: 85vh;
     width: 40vw;
     padding: 1rem 1.5rem;
     margin: 4rem auto;
@@ -13,7 +13,7 @@
 }
 
 .heading{
-    height: 10%;
+    height: 5%;
     width: 100%;
     color: var(--primary);
     font: bold 1.5rem var(--codeFont);
@@ -24,7 +24,7 @@
 }
 
 .userInfo{
-    height: 90%;
+    height: 95%;
     width: 100%;
 }
 
@@ -58,6 +58,8 @@
     position: absolute;
     right: 0;
     bottom: 1rem;
+
+    cursor: pointer;
 }
 .signForm textarea{
     height: 5rem;
@@ -121,3 +123,7 @@
     color: var(--primary);
     border-color: var(--primary);
 }
+
+/* @media only screen and (){
+    
+} */

@@ -1,143 +1,89 @@
-.footer,.row{
-    padding: 1rem;
-    /* background-color: rgb(235, 195, 64); */
-    position: absolute;
-    
-    bottom: 0%;
-    left: 0%;
-    width: 100% !important;
+.container{
+	margin-top: 3rem;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
 
-  }
-  
-  .block{
-    color: red;
-    text-align: left !important;
-    
-  }
-  .made{
-    color:#fff;
+	position: absolute;
     bottom: 0%;
     left: 0%;
-    font-size: 20px;
+}
+.sec1, .sec2{
+    padding: 0.5rem 1rem 0.5rem 1rem;
+	text-align: center;
     width: 100% !important;
-    font-family: var(--bodyFont);
-  }
-  .log{
+}
+.sec1{
+	display: flex;
+	justify-content: space-between;
+}
+.log{
     overflow: hidden;
- bottom: 0% !important;
-    font-family: 'Source Code Pro', monospace;
-    font-size: 45px;
-    padding-top: 10px !important;
-    float: left;
-    color: #03DAC5;   
-          
+    font-family: var(--codeFont), monospace;
+    font-size: 2.5rem;
+    color: var(--secondary); 
 }
-.cloumn2{
-  padding-bottom: 190px !important;
-  float: right !important;
+.made{
+	color: var(--white);
+    font-size: 1.2rem;
+    font-family: var(--bodyFont);
 }
-
 
 
 /* SOCIAL STUFF */
 .social-container {
-
-  padding-top: 20px !important;
-  padding-right: 56px;
-  float: right !important;
-
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
-a.social {
-  margin: 0 1rem;
+.social {
+  margin: 0 0 0 2rem;
   transition: transform 250ms;
   display: inline-block;
 }
-
 a.social:hover {
-  transform: translateY(-2px);
-  
+	transform: translateY(-2px); 
 }
-
-a.youtube {
+a.youtube, a.facebook, a.twitter, a.instagram, a.github{
   color:var(--secondary);
 }
 
-a.facebook {
-  color:var(--secondary);
- 
+@media only screen and (max-width: 600px){
+	.sec1{
+		flex-direction: column;
+		align-items: center;
+	}
+	.log{
+		font-size: 1.8rem;
+	}
+	.social-container{
+		width: 100%;
+	}
+	.social-container .social{
+		margin:0 0 0 1rem;
+		font-size: 0.8rem;
+	}
+	.made{
+		font-size: 1rem;
+	}
 }
 
-a.twitter {
-  color: var(--secondary);
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+	.log{
+		font-size: 1.8rem;
+	}
+	.social-container .social{
+		margin:0 0 0 1rem;
+		font-size: 1rem;
+	}
 }
 
-a.instagram {
-  color: var(--secondary);
-}
-a.github {
-  color: var(--secondary);
-}
-
-@media screen and (max-width: 480px){
-  .log{
-    padding-right: 30px !important;
-    font-size: 25px !important;
-    text-align: center !important;
-    float: none !important;
-  }
-  .yt{
-    font-size: 25px !important; 
-    /* pixel mai daalio */
-     }
-
-     .made{
-     
-       text-align: center !important;
-       margin-left: -4% !important;
-     }
-   
-}
-@media screen and (max-width: 1000px){
-  .log{
-    padding-right: 30px !important;
-    font-size: 30px !important;
-   }
-
-   .yt{
-    font-size: 30px !important;
-     
-    /* pixel mai daalio */
-     }
-     .made{
-     
-      text-align: center !important;
-      margin-left: -4% !important;
-    }
-
-}
-
-@media only screen and (min-width: 500px) and (max-width: 700px) {
-  .log{
-
-    font-size: 20px !important;
-
-  }
-  .yt{
-    font-size: 20px !important; 
-    /* pixel mai daalio */
-     }
-
-     .made{
-     
-       text-align: center !important;
-       margin-left: -4% !important;
-     }
-
-     .social-container {
-
-      padding-top: 14px !important;
-      padding-right: 0px !important;
-      float: right !important;
-    
-    }
+@media only screen and (min-width: 769px) and (max-width: 1000px){
+	.log{
+		font-size: 2.2rem;
+	}
+	.social-container .social{
+		margin:0 0 0 1rem;
+		font-size: 1.2rem;
+	}
 }

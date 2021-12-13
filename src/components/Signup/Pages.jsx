@@ -47,8 +47,7 @@ const Pages = () => {
         
     }
 
-
-
+    
     return (
         <>
             <form className = {styles.signForm} id = "signForm" onSubmit={(e) => e.preventDefault}>
