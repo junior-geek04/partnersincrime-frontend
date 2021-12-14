@@ -80,7 +80,6 @@ const Pages = () => {
                         <i onClick = {passReveal}>{visible ? <AiOutlineEye color = "rgb(0, 182, 182)" size = "1.5rem"/> : <AiOutlineEyeInvisible color = "rgb(0, 182, 182)" size = "1.5rem"/>}</i>
                     </div>
                     
-
                     <label htmlFor = "re-pass">Confirm Password</label>
                     <input type="password" placeholder = "Just to make sure we're good to go" name = "re-pass" id = "re-pass" required = {true}/>
 
@@ -91,6 +90,7 @@ const Pages = () => {
                         <div className = {styles.msg}>{msg}</div>
                         <button className = {styles.btn} onClick = {(e) => {if(validityCheck(e)){handlePageChange(2)}}}>Next Page</button><br></br>
                         <span>Already have an account? Login</span>
+                        {/* add link after setting up router */}
                     </div>
                 </>    
                 :
@@ -122,6 +122,7 @@ const Pages = () => {
                             </ul>
                         </div>
                         <div><span onClick = {() => handlePageChange(1)}>Go Back</span>&emsp;&emsp;&emsp;<span>Go Home</span></div>
+                        {/* add link after setting up router */}
                     </div>
                 </>
                 }    
