@@ -1,8 +1,8 @@
 .container{
-    height: 85vh;
-    width: 40vw;
+    height: 35rem;
+    width: 45vw;
     padding: 1rem 1.5rem;
-    margin: 4rem auto;
+    margin: 5rem auto 5rem;
 
     background-color: rgb(21, 15, 26);
     display: flex;
@@ -77,6 +77,11 @@
     text-align: center;
     width: 100%;
 }
+.pagination .msg{
+    height: 1rem;
+    color: red;
+    font-size: 1rem;
+}
 .pagination .btn{
     background-color: var(--secondary);
     width: 6rem;
@@ -124,6 +129,27 @@
     border-color: var(--primary);
 }
 
-/* @media only screen and (){
-    
-} */
+@media only screen and (max-width: 1024px){
+    .container{
+        height: 40rem;
+        width: 50vw;
+    }
+}
+@media only screen and (max-width: 768px){
+    .container{
+        height: 45rem;
+    }
+}
+@media only screen and (max-width: 500px){
+    .container{
+        width: 80vw;
+    }
+    .ListCover li{
+        font-size: 1rem;
+        margin: 0.3rem 0.3rem;
+    }
+    .signForm input, .signForm textarea{
+        width: 100%;
+        margin: 0.5rem 0rem;
+    }    
+}

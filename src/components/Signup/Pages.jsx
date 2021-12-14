@@ -7,6 +7,7 @@ const Pages = () => {
     const [page, setPage] = useState(1);
     const [inputs, setInputs] = useState({});
     const [visible, setVisible] = useState(false);
+    const [msg, setMsg] = useState('');
 
     const handleChange = (event) => {
       const name = event.target.name;
@@ -19,15 +20,30 @@ const Pages = () => {
         setPage(val);
     }
 
-    const validityCheck = () => {
+    const validityCheck = (e) => {
+        e.preventDefault();
         var formData = new FormData(document.querySelector('#signForm'));
 
         for (const value of formData.values()) {
             if(value === ""){
+                setMsg("Fields are empty");
                 return false;
             }
         }
 
+        /* password check */
+        if(formData.get("pass") !== formData.get("re-pass")){
+            setMsg("Passwords don't match");
+            return false;
+        }
+
+        /* email check */
+        if(!(/@iiitkottayam.ac.in/.test(formData.get("emailAddress")))){
+            setMsg("Invalid Email Id");
+            return false;
+        }
+
+        setMsg('');
         return true;
     }   
 
@@ -41,23 +57,22 @@ const Pages = () => {
     const itemHandle = (index) => {
         var item = Array.from(document.getElementsByTagName("li"));
 
-        if(!inputs.skills || inputs.skills.search(item[index].innerHTML) === -1){
+        if(!inputs.skills || inputs.skills.toLowerCase().search((item[index].innerHTML).toLowerCase()) === -1){
             setInputs(values => ({...values, "skills": (inputs.skills || "") + (inputs.skills ? ", " : "") + item[index].innerHTML}));
         }
-        
     }
 
     
     return (
         <>
-            <form className = {styles.signForm} id = "signForm" onSubmit={(e) => e.preventDefault}>
+            <form className = {styles.signForm} id = "signForm" onSubmit = {(e) => e.preventDefault()}>
                 {page === 1 ?
                 <>
                     <label htmlFor = "username">Enter your name</label>
-                    <input type="text" placeholder = "We'll call you by this" name = "username" id = "username" required = {true} value = {inputs.username || ""} onChange = {handleChange}/>
+                    <input type="text" placeholder = "We'll call you by this" name = "username" id = "username" autoComplete="on" required = {true} value = {inputs.username || ""} onChange = {handleChange}/>
 
                     <label htmlFor = "batch">Your Batch</label>
-                    <input type="number" placeholder = "For your batchmates" name = "batch" id = "batch" required = {true} value = {inputs.batch || ""} onChange = {handleChange}/>
+                    <input type="number" placeholder = "For your batchmates" name = "batch" id = "batch" autoComplete="on" required = {true} value = {inputs.batch || ""} onChange = {handleChange}/>
                     
                     <label htmlFor = "pass">Password</label>
                     <div className = {styles.pass}>
@@ -70,10 +85,11 @@ const Pages = () => {
                     <input type="password" placeholder = "Just to make sure we're good to go" name = "re-pass" id = "re-pass" required = {true}/>
 
                     <label htmlFor = "emailAddress">Email</label>
-                    <input type="email" placeholder = "Use your college mail" name = "emailAddress" id = "emailAddress" required = {true} value = {inputs.emailAddress || ""} onChange = {handleChange}/>
+                    <input type="email" placeholder = "Use your college mail" name = "emailAddress" id = "emailAddress" autoComplete="on" required = {true} value = {inputs.emailAddress || ""} onChange = {handleChange}/>
                     
                     <div className = {styles.pagination}>  
-                        <button className = {styles.btn} onClick = {() => {if(validityCheck()){handlePageChange(2)}}}>Next Page</button><br></br>
+                        <div className = {styles.msg}>{msg}</div>
+                        <button className = {styles.btn} onClick = {(e) => {if(validityCheck(e)){handlePageChange(2)}}}>Next Page</button><br></br>
                         <span>Already have an account? Login</span>
                     </div>
                 </>    
@@ -83,8 +99,9 @@ const Pages = () => {
                     <textarea type="text" placeholder = "Comma separated" name = "skills" id = "skills" required = {true} value = {inputs.skills || ""} onChange = {handleChange}/>
    
                     <div className = {styles.pagination}>  
-                        <button type = "submit" className = {styles.btn} onClick = {() => {console.log(inputs)}}>Get Started</button><br></br>
-
+                        <div className = {styles.msg}>{msg}</div>
+                        <button type = "submit" className = {styles.btn}>Get Started</button><br></br>
+                        {/* log the inputs state variable to see the format in which the data is captured */}
                         <div className = {styles.options}>
                             <ul className = {styles.ListCover}>
                                 <li onClick={() => itemHandle(0)}>Frontend Developer</li>

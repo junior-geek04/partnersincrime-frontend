@@ -3,10 +3,6 @@
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-
-	position: absolute;
-    bottom: 0%;
-    left: 0%;
 }
 .sec1, .sec2{
     padding: 0.5rem 1rem 0.5rem 1rem;
@@ -51,11 +47,14 @@ a.youtube, a.facebook, a.twitter, a.instagram, a.github{
 
 @media only screen and (max-width: 1000px){
 	.log{
-		font-size: 2.2rem;
+		font-size: 2rem;
 	}
 	.social-container .social{
 		margin:0 0 0 1rem;
-		font-size: 1.2rem;
+		font-size: 1rem;
+	}
+	.made{
+		font-size: 1rem;
 	}
 }
 @media only screen and (max-width: 768px) {
@@ -79,7 +78,7 @@ a.youtube, a.facebook, a.twitter, a.instagram, a.github{
 		width: 100%;
 	}
 	.social-container .social{
-		margin:0 0 0 1rem;
+		margin:0.5rem 0 0 1rem;
 		font-size: 0.8rem;
 	}
 	.made{
