@@ -1,7 +1,8 @@
-*
-{
+*{
   margin: 0;
   padding: 0;
+
+  box-sizing: border-box;
 }
 :root {
   --primary: cyan;
@@ -13,9 +14,12 @@
   --bodyFont:'Roboto',sans-serif;
   --codeFont: 'Source Code Pro', monospace;
 }
-body
-{
+html, body{
     background-color:#121212;
+    min-height: 100vh;
+    max-width: 100vw;
+
+    scroll-behavior: smooth;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

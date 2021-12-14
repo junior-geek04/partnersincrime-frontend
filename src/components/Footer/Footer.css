@@ -1,0 +1,87 @@
+.container{
+	margin-top: 3rem;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.sec1, .sec2{
+    padding: 0.5rem 1rem 0.5rem 1rem;
+	text-align: center;
+    width: 100% !important;
+}
+.sec1{
+	display: flex;
+	justify-content: space-between;
+}
+.log{
+    overflow: hidden;
+    font-family: var(--codeFont), monospace;
+    font-size: 2.5rem;
+    color: var(--secondary); 
+}
+.made{
+	color: var(--white);
+    font-size: 1.2rem;
+    font-family: var(--bodyFont);
+}
+
+
+/* SOCIAL STUFF */
+.social-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.social {
+  margin: 0 0 0 2rem;
+  transition: transform 250ms;
+  display: inline-block;
+}
+a.social:hover {
+	transform: translateY(-2px); 
+}
+a.youtube, a.facebook, a.twitter, a.instagram, a.github{
+  color:var(--secondary);
+}
+
+
+@media only screen and (max-width: 1000px){
+	.log{
+		font-size: 2rem;
+	}
+	.social-container .social{
+		margin:0 0 0 1rem;
+		font-size: 1rem;
+	}
+	.made{
+		font-size: 1rem;
+	}
+}
+@media only screen and (max-width: 768px) {
+	.log{
+		font-size: 1.8rem;
+	}
+	.social-container .social{
+		margin:0 0 0 1rem;
+		font-size: 0.8rem;
+	}
+}
+@media only screen and (max-width: 600px){
+	.sec1{
+		flex-direction: column;
+		align-items: center;
+	}
+	.log{
+		font-size: 1.8rem;
+	}
+	.social-container{
+		width: 100%;
+	}
+	.social-container .social{
+		margin:0.5rem 0 0 1rem;
+		font-size: 0.8rem;
+	}
+	.made{
+		font-size: 1rem;
+	}
+}
