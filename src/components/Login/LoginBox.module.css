@@ -19,16 +19,12 @@
     text-align: center;
 }
 .loginBox input {
-  padding: 0px;
-  width: 100%;
-  margin-bottom: 20px;
+  margin: 10%;
 }
 .loginBox input[type="text"],
 input[type="password"] {
   border: none;
-  border-radius: 20px;
   margin: 10px;
-  margin-left: 25px;
   border-bottom: 1px solid #1f1b24;
   background: transparent;
   outline: none;
