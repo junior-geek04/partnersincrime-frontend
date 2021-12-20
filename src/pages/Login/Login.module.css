@@ -1,0 +1,13 @@
+.landing_wrapper
+{
+    display: flex;
+    margin-top: 5%;
+    align-items: center;   
+}
+
+@media (max-width:992px) {
+    .landing_wrapper
+    {
+        flex-direction: column;
+    }    
+}

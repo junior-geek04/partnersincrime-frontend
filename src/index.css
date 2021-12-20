@@ -1,7 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Source+Code+Pro:wght@500;700&display=swap');
 *{
   margin: 0;
   padding: 0;
-
   box-sizing: border-box;
 }
 :root {
@@ -9,6 +9,7 @@
   --secondary: rgb(0, 182, 182);
   --third: #323232;
   --fourth: #212121;
+  --background1:rgb(21, 15, 26);
   --text: #c5c6c7;
   --white:#fff;
   --bodyFont:'Roboto',sans-serif;

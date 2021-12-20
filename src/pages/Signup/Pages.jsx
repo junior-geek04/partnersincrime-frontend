@@ -1,7 +1,7 @@
 import styles from "./signup.module.css";
 import { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-
+import { Link } from "react-router-dom";
 const Pages = () => {
 
     const [page, setPage] = useState(1);
@@ -89,7 +89,7 @@ const Pages = () => {
                     <div className = {styles.pagination}>  
                         <div className = {styles.msg}>{msg}</div>
                         <button className = {styles.btn} onClick = {(e) => {if(validityCheck(e)){handlePageChange(2)}}}>Next Page</button><br></br>
-                        <span>Already have an account? Login</span>
+                        <span><Link to ="/">Already have an account? Login</Link></span>
                         {/* add link after setting up router */}
                     </div>
                 </>    
@@ -121,7 +121,7 @@ const Pages = () => {
                                 <li onClick={() => itemHandle(14)}>Java</li>
                             </ul>
                         </div>
-                        <div><span onClick = {() => handlePageChange(1)}>Go Back</span>&emsp;&emsp;&emsp;<span>Go Home</span></div>
+                        <div><span onClick = {() => handlePageChange(1)}>Go Back</span>&emsp;&emsp;&emsp;<span><Link to = "/"> Go Home</Link></span></div>
                         {/* add link after setting up router */}
                     </div>
                 </>
