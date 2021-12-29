@@ -1,0 +1,12 @@
+.wrapper{
+    color: var(--primary);
+    font-family: var(--codeFont);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 100vw;
+}
