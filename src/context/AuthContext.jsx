@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
 
   let loginUser = async (e) => {
     e.preventDefault();
-    let response = await fetch("http://127.0.0.1:8000/authapi/token/", {
+    let response = await fetch("https://partners-in-crime.herokuapp.com/authapi/token/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -52,7 +52,7 @@ export const AuthProvider = ({ children }) => {
     history.push('/')
   };
   let updateToken = async () => {
-    let response = await fetch("http://127.0.0.1:8000/authapi/token/refresh/", {
+    let response = await fetch("https://partners-in-crime.herokuapp.com/authapi/token/refresh/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
