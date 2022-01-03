@@ -1,9 +1,10 @@
 import styles from "./signup.module.css";
-import { useState } from "react";
+import { useContext, useState} from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import AuthContext from "../../context/AuthContext";
 const Pages = () => {
-
+    const  history = useHistory();
     const [page, setPage] = useState(1);
     const [inputs, setInputs] = useState({});
     const [visible, setVisible] = useState(false);
@@ -19,6 +20,7 @@ const Pages = () => {
     const handlePageChange = (val) => {
         setPage(val);
     }
+    let {register,registerError,user} = useContext(AuthContext)
 
     const validityCheck = (e) => {
         e.preventDefault();
@@ -42,7 +44,12 @@ const Pages = () => {
             setMsg("Invalid Email Id");
             return false;
         }
-
+       
+        register(formData);
+        if(registerError){
+            setMsg(registerError)
+            return false;
+        }
         setMsg('');
         return true;
     }   
@@ -53,7 +60,6 @@ const Pages = () => {
 
         visible ? el.type = "password" : el.type = "text";
     }
-
     const itemHandle = (index) => {
         var item = Array.from(document.getElementsByTagName("li"));
 
@@ -61,25 +67,44 @@ const Pages = () => {
             setInputs(values => ({...values, "skills": (inputs.skills || "") + (inputs.skills ? ", " : "") + item[index].innerHTML}));
         }
     }
-
+    const addSkills = async (e) =>{
+        e.preventDefault()
+        var skillData = document.getElementById("skills").value
+        if(user){
+            let username = user.username
+            let response = await fetch("/main/addSkills/", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  username: username,
+                  skills:skillData
+                }),
+              });
+              if (response.status === 400){
+                alert("Something Went Wrong Please Try Again Later")
+              }
+              else if (response.status === 201){
+                history.push("/home");
+              }
+        }
+    }
     
     return (
         <>
-            <form className = {styles.signForm} id = "signForm" onSubmit = {(e) => e.preventDefault()}>
+            <form className = {styles.signForm} id = "signForm">
                 {page === 1 ?
                 <>
-                    <label htmlFor = "username">Enter your name</label>
-                    <input type="text" placeholder = "We'll call you by this" name = "username" id = "username" autoComplete="on" required = {true} value = {inputs.username || ""} onChange = {handleChange}/>
-
-                    <label htmlFor = "batch">Your Batch</label>
-                    <input type="number" placeholder = "For your batchmates" name = "batch" id = "batch" autoComplete="on" required = {true} value = {inputs.batch || ""} onChange = {handleChange}/>
-                    
+                    <label htmlFor = "username">Enter Username</label>
+                    <input type="text" placeholder = "Your unique identity" name = "username" id = "username" autoComplete="on" required = {true} value = {inputs.username || ""} onChange = {handleChange}/>
+                    <label htmlFor = "name">Enter your name</label>
+                    <input type="text" placeholder = "We'll call you by this" name = "name" id = "name" autoComplete="on" required = {true} value = {inputs.name || ""} onChange = {handleChange}/>
                     <label htmlFor = "pass">Password</label>
                     <div className = {styles.pass}>
                         <input type="password" placeholder = "To secure your account" name = "pass" id = "pass" required = {true}/>
                         <i onClick = {passReveal}>{visible ? <AiOutlineEye color = "rgb(0, 182, 182)" size = "1.5rem"/> : <AiOutlineEyeInvisible color = "rgb(0, 182, 182)" size = "1.5rem"/>}</i>
-                    </div>
-                    
+                    </div> 
                     <label htmlFor = "re-pass">Confirm Password</label>
                     <input type="password" placeholder = "Just to make sure we're good to go" name = "re-pass" id = "re-pass" required = {true}/>
 
@@ -100,7 +125,7 @@ const Pages = () => {
    
                     <div className = {styles.pagination}>  
                         <div className = {styles.msg}>{msg}</div>
-                        <button type = "submit" className = {styles.btn}>Get Started</button><br></br>
+                        <button type = "submit" className = {styles.btn} onClick = {addSkills}>Get Started</button><br></br>
                         {/* log the inputs state variable to see the format in which the data is captured */}
                         <div className = {styles.options}>
                             <ul className = {styles.ListCover}>

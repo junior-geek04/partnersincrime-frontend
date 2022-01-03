@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styles from "./LoginBox.module.css";
 import AuthContext from "../../context/AuthContext";
 const LoginBox = () => {
-  let {loginUser} = useContext(AuthContext)
+  let {loginUser,loginError} = useContext(AuthContext)
   return (
     <div className={styles.loginBox}>
       <h1>Login</h1>
@@ -24,6 +24,7 @@ const LoginBox = () => {
         />
         <input type="submit" value="Login" />
       </form>
+      <div className = {styles.msg}>{loginError}</div>
       <Link to="/signup">Create an Account</Link>
     </div>
   );
