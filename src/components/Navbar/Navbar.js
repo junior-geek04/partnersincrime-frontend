@@ -13,13 +13,13 @@ function Navbar(props) {
             <div id="container-2">
 
                 <div id="welcome">
-                    {`cout<<" Welcome to partnersInCrime! ";`}
+                    <p>cout&lt; &lt;" Hello {props.username}";</p>
                 </div>
 
                 <div id="left-controls">
                    <Link to="/home">Home</Link>
                    <Link to="/profile">Profile</Link>
-                   <Link to="/logout" onClick={props.logout}>Logout</Link>
+                   <Link onClick={props.logout}>Logout</Link>
                 </div>
 
             </div>

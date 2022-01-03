@@ -1,12 +1,12 @@
 import React,{ useContext } from 'react'
 import styles from "./Home.module.css";
 import AuthContext from '../../context/AuthContext';
+import Navbar from '../../components/Navbar/Navbar';
 const Home = () => {
     let {user,logout} = useContext(AuthContext)
     return (
         <div className = {styles.wrapper}>
-            <h1>Welcome {user.username}</h1>
-            <p onClick={logout}>Logout</p>
+            <Navbar username = {user.username} logout = {logout} />
         </div>
     )
 }
