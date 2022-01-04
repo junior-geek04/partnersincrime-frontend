@@ -3,6 +3,7 @@ import { useContext, useState} from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link, useHistory } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
+
 const Pages = () => {
     const  history = useHistory();
     const [page, setPage] = useState(1);
@@ -11,10 +12,10 @@ const Pages = () => {
     const [msg, setMsg] = useState('');
 
     const handleChange = (event) => {
-      const name = event.target.name;
-      const value = event.target.value;
+        const name = event.target.name;
+        const value = event.target.value;
 
-      setInputs(values => ({...values, [name]: value}))
+        setInputs(values => ({...values, [name]: value}))
     }
 
     const handlePageChange = (val) => {
@@ -63,8 +64,8 @@ const Pages = () => {
     const itemHandle = (index) => {
         var item = Array.from(document.getElementsByTagName("li"));
 
-        if(!inputs.skills || inputs.skills.toLowerCase().search((item[index].innerHTML).toLowerCase()) === -1){
-            setInputs(values => ({...values, "skills": (inputs.skills || "") + (inputs.skills ? ", " : "") + item[index].innerHTML}));
+        if(!inputs.skills || inputs.skills.toLowerCase().search((item[index].innerText).toLowerCase()) === -1){
+            setInputs(values => ({...values, "skills": (inputs.skills || "") + (inputs.skills ? ", " : "") + item[index].innerText}));
         }
     }
     const addSkills = async (e) =>{
